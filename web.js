@@ -13,7 +13,7 @@ app.post('/', function (req, res) {
   var action;
   var moves;
   console.log(req.body);
-  gameData = req;
+  gameData = req.body;
   //gameData = request;
   for(const player in gameData.arena.state){
     console.log(player);
