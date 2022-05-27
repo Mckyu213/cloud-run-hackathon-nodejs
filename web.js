@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
 app.post('/', function (req, res) {
   console.log(req.body);
   const moves = ['F', 'T', 'L', 'R'];
-  res.send(moves[1]);
+  res.send('L');
 });
 
 app.listen(process.env.PORT || 8080);
