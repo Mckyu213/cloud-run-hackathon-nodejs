@@ -39,6 +39,9 @@ app.post('/', function (req, res) {
       }
     }
   }
+  
+  moves = ['T', 'F'];
+  res.send(moves[Math.floor(Math.random() * moves.length)]);
 });
 
 app.listen(process.env.PORT || 8080);
