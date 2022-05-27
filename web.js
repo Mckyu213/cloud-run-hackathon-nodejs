@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
 app.post('/', function (req, res) {
   var action;
   console.log(req.body);
-  gameData = req;
+  gameData = req.body;
   for(const player in gameData.arena.state){
     if(player == myURL && gameData.arena.state[player].wasHit){
       action = 'F';
