@@ -21,15 +21,15 @@ app.post('/', function (req, res) {
     if(player == myURL){
       if(gameData.arena.state[player].wasHit){
         moves = ['F','L'];
-        res.send(moves[Math.floor(Math.random() * moves.length)]);
       }
       else{
-        res.send('T');
+        moves = ['T','L'];
       }
+      res.send(moves[Math.floor(Math.random() * moves.length)]);
     }
   }
   
-  
+  res.send('T');
   
 });
 
