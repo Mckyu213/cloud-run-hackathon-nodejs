@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const myURL = "https://hackathon2022-bvjxrtp5xq-uc.a.run.app";
 var gameData;
 app.use(bodyParser.json());
 
@@ -15,7 +14,8 @@ app.post('/', function (req, res) {
   var moves;
   gameData = req.body;
   console.log(gameData);
-
+  var myURL =  gameData._links.self.href;
+  
   for(const player in gameData.arena.state){
     console.log(player);
     if(player == myURL){
