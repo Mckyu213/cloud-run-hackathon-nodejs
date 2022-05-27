@@ -15,7 +15,9 @@ app.post('/', function (req, res) {
   gameData = req.body;
   console.log(gameData);
   var myURL =  gameData._links.self.href;
-  res.send('T');
+  moves = ['F','T'];
+  action = moves[Math.floor(Math.random() * moves.length)];
+  res.send(action);
   for(const player in gameData.arena.state){
     console.log(player);
     if(player == myURL){
