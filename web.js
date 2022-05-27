@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
 
 app.post('/', function (req, res) {
   
-  var action;
+  var action = 'T';
   var moves;
   gameData = req.body;
   console.log(gameData);
@@ -21,6 +21,8 @@ app.post('/', function (req, res) {
     if(player == myURL){
       if(gameData.arena.state[player].x!= 0 || gameData.arena.state[player].y!=0){
         moves = ['F','L'];
+        action = moves[Math.floor(Math.random() * moves.length)];
+        res.send(action);
       }
       else if(gameData.arena.state[player].x == 0 ){
         if(gameData.arena.state[player].direction != 'S' || gameData.arena.state[player].direction !='N'){
