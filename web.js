@@ -11,7 +11,8 @@ app.get('/', function (req, res) {
 app.post('/', function (req, res) {
   console.log(req.body);
   const moves = ['T', 'L'];
-  res.send('T');
+  const action = moves[Math.floor(Math.random() * moves.length)];
+  res.send(action);
 });
 
 app.listen(process.env.PORT || 8080);
