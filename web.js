@@ -13,7 +13,7 @@ app.post('/', function (req, res) {
   var action;
   var moves;
   
-  moves = ['T', 'F'];
+  moves = ['T'];
   res.send(moves[Math.floor(Math.random() * moves.length)]);
 });
 
