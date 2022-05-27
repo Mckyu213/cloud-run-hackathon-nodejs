@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-
+const myURL = "https://hackathon2022-bvjxrtp5xq-uc.a.run.app";
+var gameData;
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
@@ -9,9 +10,18 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', function (req, res) {
+  var action;
   console.log(req.body);
-  const moves = ['T', 'L'];
-  const action = moves[Math.floor(Math.random() * moves.length)];
+  gameData = req;
+  for(const player in gameData.arena.state){
+    if(player == myURL && gameData.arena.state[player].wasHit){
+      action = 'F';
+    }
+    else{
+      const moves = ['T', 'L'];
+      action = moves[Math.floor(Math.random() * moves.length)];
+    }
+  }
   res.send(action);
 });
 
